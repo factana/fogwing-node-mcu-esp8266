@@ -2,7 +2,7 @@
 
 This directory provide a files that sends sample data over Fogwing IoTHub using node-mcu-esp8266.
 
-######  Note:-** that these SDKs are currently in preview and are subject to change.
+####  Note:- that these SDKs are currently in preview and are subject to change.
 
 ## Fogwing IoT Simulation using node-mcu-esp8266
 
