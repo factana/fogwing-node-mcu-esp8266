@@ -1,6 +1,6 @@
 
 
-# *IoT emulator programs for node-mcu-esp8266*
+# *Fogwing IoT emulator programs for node-mcu-esp8266*
 
 This repository contains emulated code for the Fogwing IoT for node-mcu-esp8266 that enables devices to send the data seamlessly to Fogwing IoTHub [Fogwing](https://enterprise.fogwing.net/) platform.
 
