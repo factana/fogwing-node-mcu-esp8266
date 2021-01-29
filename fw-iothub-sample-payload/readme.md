@@ -1,4 +1,4 @@
-# _fogwing-emulator-for-node-mcu-esp8266 with sample_payload_
+# _fogwing emulator for-node-mcu-esp8266 with sample_payload_
 
 This directory provide a files that sends sample data over Fogwing IoTHub using node-mcu-esp8266.
 
