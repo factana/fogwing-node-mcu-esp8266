@@ -1,10 +1,10 @@
-# _fogwing-emulator-for-node-mcu-esp8266 with DHT11_
+# _fogwing emulator for-node-mcu-esp8266 with DHT11_
 
 This directory provide a files that reads the sensor data and sends the same to Fogwing IoTHub using node-mcu-esp8266.
 
 #####  Note:- These SDKs are currently in preview and are subject to change.
 
-## Fogwing IoT using node-mcu-esp8266 with DHT11
+## Fogwing IoT emulation for node-mcu-esp8266 with DHT11
 
 
 We have provided a file:
