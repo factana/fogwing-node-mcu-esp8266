@@ -1,10 +1,10 @@
-# _fogwing-emulator-for-node-mcu-esp8266_
+# _fogwing-emulator-for-node-mcu-esp8266 with sample_payload_
 
 This directory provide a files that sends sample data over Fogwing IoTHub using node-mcu-esp8266.
 
 #####  Note:- These SDKs are currently in preview and are subject to change.
 
-## Fogwing IoT using node-mcu-esp8266
+## Fogwing IoT emulation for node-mcu-esp8266 with sample_payload
 
 We have provided a file:
 * [sample_payload.ino](https://github.com/factana/fogwing-node-mcu-esp8266/blob/main/fw-iothub-sample-payload/sample_payload.ino)
