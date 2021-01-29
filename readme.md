@@ -14,13 +14,11 @@ This repository contains the following sensor's code:
 
 ## Installing the libraries
 Install all required libraries using Arduino IDE.
-* [ArduinoJson.zip](https://github.com/factana/fogwing-node-mcu-esp8266/blob/main/ArduinoJson.zip)
-* [DHT_sensor_library.zip](https://github.com/factana/fogwing-node-mcu-esp8266/blob/main/DHT_sensor_library.zip)
-* [PubSubClient.zip](https://github.com/factana/fogwing-node-mcu-esp8266/blob/main/PubSubClient.zip)
+* DHT sensor library by Adafruit
+* PubSubClient library by Nick O' Leary
+* ArduinoJson by Benoit Blanchon
 
-Download the above ZIP files. Now open Arduino IDE, go to **Sketch -> Include Library -> Add.ZIP Library...** and include all the above libraries one by one. You can also download these libraries from library manager.
-
-
+Open Arduino IDE, go to **Sketch -> Include Library -> Library Manager** and include all the above libraries one by one.
 
 ## Run and Get Started with Fogwing IoT
 Change required credentials with your Fogwing IoTHub access credentials after which you can upload the sketch into the board.
