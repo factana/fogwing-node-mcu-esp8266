@@ -3,20 +3,20 @@
 #include <ESP8266WiFi.h>
 
 // WiFi credentials
-#define WIFI_SSID "Unique 2 Main"
-#define WIFI_PASS "9980881114"
+#define WIFI_SSID "Enter your SSID"
+#define WIFI_PASS "Enter your Wi-Fi password"
 
 // MQTT broker
 #define MQTT_BROKER "iothub.enterprise.fogwing.net"
 
 // Fogwing MQTT Access credentials
-#define CLIENT_ID "1151-1103-1080-1002"
-#define USER_NAME "ajaykanojiya"
-#define PASSWORD "Ajaya@123"
+#define CLIENT_ID "Enter Fogwing IoTHub ClientID"
+#define USER_NAME "Enter Fogwing IoTHub username"
+#define PASSWORD "Enter Fogwing IoTHub password"
 
 // Fogwing MQTT Access publish and subscribe topics
-#define PUB_EDGE "fwent/edge/171de0153fae20f8/inbound"
-#define SUB_EDGE "fwent/edge/171de0153fae20f8/outbound"
+#define PUB_EDGE "Enter Fogwing IoTHub publish topic"
+#define SUB_EDGE "Enter Fogwing IoTHub subscribe topic"
 
 // 5 min time frequency to send the data to Fogwing IoT Hub
 #define TIME_FREQ ((1000 * 60) * 0.5)
