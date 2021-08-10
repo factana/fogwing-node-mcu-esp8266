@@ -3,23 +3,23 @@
 #include <ESP8266WiFi.h>
 
 // WiFi credentials
-#define WIFI_SSID "Your WiFi SSID"
-#define WIFI_PASS "Your WiFi Password"
+#define WIFI_SSID "Unique 2 Main"
+#define WIFI_PASS "9980881114"
 
 // MQTT broker
 #define MQTT_BROKER "iothub.enterprise.fogwing.net"
 
 // Fogwing MQTT Access credentials
-#define CLIENT_ID "Client ID"
-#define USER_NAME "MQTT User Name"
-#define PASSWORD "MQTT Password"
+#define CLIENT_ID "1151-1103-1080-1002"
+#define USER_NAME "ajaykanojiya"
+#define PASSWORD "Ajaya@123"
 
 // Fogwing MQTT Access publish and subscribe topics
-#define PUB_EDGE "Publish Topic"
-#define SUB_EDGE "Subscribe Topic"
+#define PUB_EDGE "fwent/edge/171de0153fae20f8/inbound"
+#define SUB_EDGE "fwent/edge/171de0153fae20f8/outbound"
 
 // 5 min time frequency to send the data to Fogwing IoT Hub
-#define TIME_FREQ ((1000 * 60) * 5)
+#define TIME_FREQ ((1000 * 60) * 0.5)
 
 // Client object for WiFi
 WiFiClient wifiClient;
@@ -27,9 +27,15 @@ WiFiClient wifiClient;
 // Client object for MQTT
 PubSubClient client(wifiClient);
 
+String cmdJson;
+
 void setup() {
+
+
   // Initialize ESP8266 serial interface
   Serial.begin(9600);
+
+  Serial.println("..................Welcome to Fogwing IIoT Platform..................");
 
   // Initialize WiFi
   initWiFi();
@@ -38,7 +44,10 @@ void setup() {
   client.setServer(MQTT_BROKER, 1883);
 
   // Set function to receive the subscribed message
-  client.setCallback(onMsgReception);
+  client.setCallback(callback);
+
+  pinMode(LED_BUILTIN , OUTPUT);
+
 }
 
 void loop() {
@@ -60,13 +69,12 @@ void loop() {
     char payload[500];
 
     // JSON payload
-    jsonData["temperature"] = 60.5;
-    jsonData["humidity"] = 78;
-    jsonData["CO2"] = 12;
-    jsonData["$rssi"] = -32;
-    jsonData["$battery"] = 72;
-    jsonData["$lati"] = 52.1326;
-    jsonData["$long"] = 77.1346;
+    jsonData["temperature"] = random(250, 300) / 10.0;
+    jsonData["humidity"] = random(500, 600) / 10.0;
+    jsonData["CO2"] = random(100, 130)  / 10.0;
+    jsonData["$rssi"] = random(-32, -35);
+    jsonData["$battery"] = random(700, 750) / 10.0;
+
 
     // Serialize JSON to send over network
     serializeJson(jsonData, payload);
@@ -79,13 +87,6 @@ void loop() {
     else
       Serial.println(F("Error publishing payload"));
 
-    // Subscribe to topic
-    if (client.subscribe(SUB_EDGE)) {
-      Serial.print(F("Subscribed to topic"));
-      Serial.println(SUB_EDGE);
-    }
-    else
-      Serial.println(F("Error subscribing to topic"));
 
     tLast = tNow;
   }
@@ -96,7 +97,7 @@ void loop() {
 }
 
 void initWiFi() {
-  Serial.print(F("Connecting to AP"));
+  Serial.printf("\n Connecting to %s", WIFI_SSID);
 
   // Set ESP8266 in station mode
   WiFi.mode(WIFI_STA);
@@ -111,7 +112,7 @@ void initWiFi() {
   }
 
   if (WiFi.status() == WL_CONNECTED)
-    Serial.println(F("\nConnected to AP\n"));
+    Serial.printf("\n Connected to %s\n", WIFI_SSID);
   else
     Serial.println(F("Error connecting to WiFi"));
 }
@@ -122,21 +123,59 @@ void reconnect() {
     if (WiFi.status() != WL_CONNECTED)
       initWiFi();
 
-    Serial.println(F("Connecting to MQTT Broker"));
-    if (client.connect(CLIENT_ID, USER_NAME, PASSWORD))
-      Serial.println(F("Connected to MQTT"));
+    Serial.println(F("\n Connecting to Fogwing IoTHub"));
+    if (client.connect(CLIENT_ID, USER_NAME, PASSWORD)) {
+      Serial.println(F("\n Connected to Fogwing IoTHub"));
+      client.subscribe(SUB_EDGE);
+    }
     else
-      Serial.println(F("Failed to connect to MQTT"));
+      Serial.println(F("\n Failed to connect Fogwing IoTHub"));
   }
 }
 
 // This function is responsible to receive message from MQTT Broker
-void onMsgReception(char* topic, byte* payload, unsigned int length) {
-  payload[length] = '\0';
-
-  Serial.println(F("\n<------------- [Message Arrived] ------------->"));
-  Serial.print("Topic: ");
+void callback(char* topic, byte* message, unsigned int length) {
+  Serial.println();
+  Serial.println("..................iothub.enterprise.fogwing.net..................");
+  Serial.println();
+  Serial.print("Message arrived on topic: ");
   Serial.println(topic);
-  Serial.println((char*)payload);
-  Serial.println(F("<-------------- [End of Message] ------------->\n"));
+  Serial.print("Message: ");
+  String messageTemp;
+
+  for (int i = 0; i < length; i++) {
+    //    Serial.print((char)message[i]);
+    messageTemp += (char)message[i];
+  }
+
+  Serial.println(messageTemp);
+  Serial.println();
+
+  if (String(SUB_EDGE) == topic)
+  {
+
+
+    StaticJsonDocument<500> jsonData;
+    DeserializationError error = deserializeJson(jsonData, messageTemp);
+
+
+    if (!error) {
+      if ("ON" == jsonData["LED"])
+      {
+        digitalWrite(LED_BUILTIN , LOW);
+        Serial.println("ON");
+
+      }
+      else if ("OFF" == jsonData["LED"])
+      {
+        digitalWrite(LED_BUILTIN , HIGH);
+        Serial.println("LOW");
+
+      }
+      else Serial.println("Invalid JSON");
+    }
+
+  }
+
+
 }
