@@ -47,6 +47,7 @@ void setup() {
   client.setCallback(callback);
 
   pinMode(LED_BUILTIN , OUTPUT);
+  digitalWrite(LED_BUILTIN, HIGH);
 
 }
 
