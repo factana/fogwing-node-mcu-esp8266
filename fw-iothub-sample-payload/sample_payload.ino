@@ -163,13 +163,13 @@ void callback(char* topic, byte* message, unsigned int length) {
       if ("ON" == jsonData["LED"])
       {
         digitalWrite(LED_BUILTIN , LOW);
-        Serial.println("ON");
+        Serial.println("LED status: ON");
 
       }
       else if ("OFF" == jsonData["LED"])
       {
         digitalWrite(LED_BUILTIN , HIGH);
-        Serial.println("LOW");
+        Serial.println("LED status: OFF");
 
       }
       else Serial.println("Invalid JSON");
