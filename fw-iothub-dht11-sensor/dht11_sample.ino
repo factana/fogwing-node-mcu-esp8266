@@ -5,7 +5,6 @@
 
 #define DHTPIN 4     // Digital pin connected to the DHT sensor
 
-
 #define DHTTYPE DHT11
 
 DHT dht(DHTPIN, DHTTYPE);
