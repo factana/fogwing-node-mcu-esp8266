@@ -31,3 +31,4 @@ Now you are ready to analyze your data at [Fogwing Platform](https://enterprise.
 ## Getting help and finding Fogwing docs
 * [Fogwing Platform Forum](https://enterprise.fogwing.net/)
 * [Fogwing Platform Docs](https://docs.fogwing.io/)
+* Please visit https://www.fogwing.io/industrial-iot-platform/ for more information about Fogwing Industrial IoT Platform.
