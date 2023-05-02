@@ -7,7 +7,7 @@
 #define WIFI_PASS "Enter your Wi-Fi password"
 
 // MQTT broker
-#define MQTT_BROKER "iothub.enterprise.fogwing.net"
+#define MQTT_BROKER "iothub.fogwing.net"
 
 // Fogwing MQTT Access credentials
 #define CLIENT_ID "Enter Fogwing IoTHub ClientID"

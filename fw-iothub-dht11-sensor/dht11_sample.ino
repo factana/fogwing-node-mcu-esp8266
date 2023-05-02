@@ -14,7 +14,7 @@ DHT dht(DHTPIN, DHTTYPE);
 #define WIFI_PASS "Your WiFi Password"
 
 // MQTT broker
-#define MQTT_BROKER "iothub.enterprise.fogwing.net"
+#define MQTT_BROKER "iothub.fogwing.net"
 
 // Fogwing MQTT Access credentials
 #define CLIENT_ID "Client ID"
