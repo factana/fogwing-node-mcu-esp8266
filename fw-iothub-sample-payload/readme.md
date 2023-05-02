@@ -26,12 +26,12 @@ The logic behind the code is to send the sample data over Fogwing IoTHub using n
 * After successful compilation select the correct board for node-mcu-esp8266 from board manager and upload the sketch into the board.
 * If you see the **Done Uploading...** than you successfully uploaded the sketch into the board.
 
-**Note:-** Provided everything goes in line with the above mentioned instructions, you will be able to see the data on [Fogwing](https://enterprise.fogwing.net/) Platform.
+**Note:-** Provided everything goes in line with the above mentioned instructions, you will be able to see the data on [Fogwing](https://portal.fogwing.net/) Platform.
 
 ## Step:4
 ### Start analyzing your data at Fogwing Platform
-* Now you are ready to analyze your data at [Fogwing](https://enterprise.fogwing.net/)  Platform portal, you can check all the data within the Data Storage in the portal.
+* Now you are ready to analyze your data at [Fogwing](https://portal.fogwing.net/)  Platform portal, you can check all the data within the Data Storage in the portal.
 
 ## Getting help and finding Fogwing docs:
-* [Fogwing Platform Forum](https://enterprise.fogwing.net/)
+* [Fogwing Platform Forum](https://community.fogwing.io/)
 * [Fogwing Platform Docs](https://docs.fogwing.io/fogwing-platform/)
